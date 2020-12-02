@@ -133,3 +133,14 @@ dmypy.json
 .idea
 
 *.sh
+
+# Additional directories to ignore
+experiments/
+data/synthetic/
+data/BEA_2019/
+data/conll14st-test-data/
+data/ginger/
+deployment/data/
+
+# Model files
+*.th

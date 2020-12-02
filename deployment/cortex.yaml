@@ -1,0 +1,17 @@
+- name: gector-gpu
+  kind: RealtimeAPI
+  predictor:
+    type: python
+    path: predictor.py
+    config: {"vocab_path": "data/output_vocabulary", "model_path": "best.th"}
+    image: cortexlabs/python-predictor-gpu:0.22.1
+    env: {"CUDA_VISIBLE_DEVICES": "0"}
+  compute:
+    gpu: 1
+    mem: 4Gi
+  autoscaling:
+    min_replicas: 1
+    max_replicas: 10
+  networking:
+    local_port: 8891
+    api_gateway: public
